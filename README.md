@@ -1,6 +1,3 @@
-# Snippet from abode.space
+# Beauty Hive
 
-A Pen created on CodePen.
-
-Original URL: [https://codepen.io/kaped25/pen/LEpJmJe](https://codepen.io/kaped25/pen/LEpJmJe).
-
+A concept landing page for Beauty Hive, a social media app built for licensed professionals in the beauty industry.
