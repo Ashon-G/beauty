@@ -1,4 +1,4 @@
-const videos = [
+const sources = [
   'video1.mp4',
   'video2.mp4',
   'video3.mp4',
@@ -6,14 +6,29 @@ const videos = [
   'video5.mp4'
 ];
 
-let index = 0;
-const videoEl = document.getElementById('background-video');
+const videos = [
+  document.getElementById('bgVideo1'),
+  document.getElementById('bgVideo2')
+];
 
-function playNext() {
-  videoEl.src = videos[index];
-  videoEl.play();
-  index = (index + 1) % videos.length;
+let current = 0;
+let sourceIndex = 0;
+
+function showNext() {
+  const next = (current + 1) % 2;
+  const video = videos[next];
+  video.src = sources[sourceIndex];
+  video.play();
+  video.classList.add('visible');
+  videos[current].classList.remove('visible');
+  current = next;
+  sourceIndex = (sourceIndex + 1) % sources.length;
 }
 
-playNext();
-setInterval(playNext, 3000);
+// initialize first video
+videos[0].src = sources[0];
+videos[0].classList.add('visible');
+videos[0].play();
+sourceIndex = 1;
+
+setInterval(showNext, 3000);

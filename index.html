@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <video id="background-video" muted playsinline></video>
+  <video class="bg-video visible" id="bgVideo1" muted playsinline></video>
+  <video class="bg-video" id="bgVideo2" muted playsinline></video>
   <div class="overlay"></div>
   <div class="content">
     <h1>Beauty Hive</h1>
+    <p class="tagline">Where beauty connects</p>
     <form id="signup-form" action="#" method="post">
       <input type="email" placeholder="Enter your email" required />
       <button type="submit">Sign Up</button>
