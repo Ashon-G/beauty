@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'Cirka';
+  src: url('Cirka-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cirka';
+  src: url('Cirka-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --gold: #d4af37;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Cirka', sans-serif;
+  color: var(--gold);
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: -2;
+}
+
+.bg-video.visible {
+  opacity: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+.content {
+  text-align: center;
+  animation: fadeInUp 1.5s ease forwards;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+#signup-form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#signup-form input[type="email"] {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--gold);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--gold);
+  border-radius: 4px;
+  min-width: 240px;
+}
+
+#signup-form input[type="email"]::placeholder {
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+#signup-form button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#signup-form button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.skyline {
+  stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  stroke-dashoffset: 0;
+  animation: skyline 20s linear infinite;
+}
+
+.skyline-bridge {
+  stroke-dasharray: 0,243;
+  stroke-dashoffset: 0;
+  animation: skyline-bridge 20s linear infinite;
+}
+
+@keyframes skyline {
+  0% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+  20% {
+    stroke-dasharray: 0,0,1725,0, 1725,0,0;
+  }
+  60% {
+    stroke-dasharray: 0,0,1725,0, 1725,0,0;
+  }
+  80% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+  100% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+}
+
+@keyframes skyline-bridge {
+  0% {
+    stroke-dasharray: 0,243;
+  }
+  15% {
+    stroke-dasharray: 0,243;
+  }
+  17% {
+    stroke-dasharray: 243,0;
+  }
+  63% {
+    stroke-dasharray: 243,0;
+  }
+  65% {
+    stroke-dasharray: 0,243;
+  }
+  100% {
+    stroke-dasharray: 0,243;
+  }
+}
