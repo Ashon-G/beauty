@@ -60,6 +60,8 @@ body {
 .content {
   text-align: center;
   animation: fadeInUp 1.5s ease forwards;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -125,6 +127,66 @@ h1 {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  transform: translateY(0);
+  }
+}
+
+svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.skyline {
+  stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  stroke-dashoffset: 0;
+  animation: skyline 20s linear infinite;
+}
+
+.skyline-bridge {
+  stroke-dasharray: 0,243;
+  stroke-dashoffset: 0;
+  animation: skyline-bridge 20s linear infinite;
+}
+
+@keyframes skyline {
+  0% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+  20% {
+    stroke-dasharray: 0,0,1725,0, 1725,0,0;
+  }
+  60% {
+    stroke-dasharray: 0,0,1725,0, 1725,0,0;
+  }
+  80% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+  100% {
+    stroke-dasharray: 0,1725, 0,0,0, 1725,0;
+  }
+}
+
+@keyframes skyline-bridge {
+  0% {
+    stroke-dasharray: 0,243;
+  }
+  15% {
+    stroke-dasharray: 0,243;
+  }
+  17% {
+    stroke-dasharray: 243,0;
+  }
+  63% {
+    stroke-dasharray: 243,0;
+  }
+  65% {
+    stroke-dasharray: 0,243;
+  }
+  100% {
+    stroke-dasharray: 0,243;
   }
 }
